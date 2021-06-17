@@ -19,9 +19,7 @@ interface Result {
 }
 
 function latestNonce (api: ApiInterfaceRx, address: string): Observable<Index> {
-  return api.derive.balances.account(address).pipe(
-    map(({ accountNonce }) => accountNonce)
-  );
+  return of(api.registry.createType('Index')); // there is no nonce...
 }
 
 function nextNonce (api: ApiInterfaceRx, address: string): Observable<Index> {
